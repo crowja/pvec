@@ -109,8 +109,8 @@ static void
 test_entropy(void)
 {
    double      x[] = { 0.5, 0.4, 0.1, 0.0 };
-   double entropy = pvec_entropy(4, x);
-   double entropy0 = 0.94334839232903924917e-00;
+   double      entropy = pvec_entropy(4, x);
+   double      entropy0 = 0.94334839232903924917e-00;
 
    _printf_test_name("test_entropy", "pvec_entropy");
 

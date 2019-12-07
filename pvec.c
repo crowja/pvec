@@ -1,7 +1,7 @@
 /**
  *  @file pvec.c
  *  @version 0.1.0-dev0
- *  @date Thu Nov  1 09:58:31 CDT 2018
+ *  @date Sat Dec  7 13:08:23 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME
@@ -33,8 +33,6 @@
 #endif
 #define _MIN2(a, b)   ((a) < (b) ? (a) : (b))
 
-/*** pvec_check() ***/
-
 int
 pvec_check(unsigned len, double *pvec)
 {
@@ -45,13 +43,11 @@ pvec_check(unsigned len, double *pvec)
       if (pvec[i] < 0)
          return 0;
       if (pvec[i] > 0)
-         okay = 1; /* have at least one positive value */
+         okay = 1;                               /* have at least one positive value */
    }
 
    return okay;
 }
-
-/*** pvec_convex_domain() ***/
 
 void
 pvec_convex_domain(unsigned len, double *pvec1, double *pvec2, double *alpha_min,
@@ -78,8 +74,6 @@ pvec_convex_domain(unsigned len, double *pvec1, double *pvec2, double *alpha_min
    }
 }
 
-/*** pvec_convex_sum() ***/
-
 void
 pvec_convex_sum(unsigned len, double a, double *pvec1, double *pvec2, double *pvec3)
 {
@@ -88,8 +82,6 @@ pvec_convex_sum(unsigned len, double a, double *pvec1, double *pvec2, double *pv
    for (i = 0; i < len; i++)
       pvec3[i] = (1 - a) * pvec1[i] + a * pvec2[i];
 }
-
-/*** pvec_entropy() ***/
 
 double
 pvec_entropy(unsigned len, double *pvec)
@@ -103,8 +95,6 @@ pvec_entropy(unsigned len, double *pvec)
 
    return sum > 0 ? sum : 0.0;
 }
-
-/*** pvec_normalize() ***/
 
 int
 pvec_normalize(unsigned len, double *pvec)
@@ -127,8 +117,6 @@ pvec_normalize(unsigned len, double *pvec)
    return 0;
 }
 
-/*** pvec_sparsify() ***/
-
 unsigned
 pvec_sparsify(unsigned len, double *pvec)
 {
@@ -147,8 +135,6 @@ pvec_sparsify(unsigned len, double *pvec)
 
    return changed;
 }
-
-/*** pvec_version() ***/
 
 const char *
 pvec_version(void)
