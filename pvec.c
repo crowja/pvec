@@ -1,6 +1,6 @@
 /**
  *  @file pvec.c
- *  @version 0.1.0-dev0
+ *  @version 0.1.1-dev0
  *  @date Sat Dec  7 13:08:23 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
@@ -139,7 +139,7 @@ pvec_sparsify(unsigned len, double *pvec)
 const char *
 pvec_version(void)
 {
-   return "0.1.0-dev0";
+   return "0.1.1-dev0";
 }
 
 #undef _IS_NULL
