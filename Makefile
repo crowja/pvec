@@ -81,8 +81,8 @@ indent: stamp
 	done
 
 stamp:
-	@bash stamper.bash pvec.c
-	@bash stamper.bash pvec.h
+	@stamper.bash pvec.c
+	@stamper.bash pvec.h
 
 clean:
 	@/bin/rm -f pvec.o *.o *~ *.BAK *.bak core.* a.out
