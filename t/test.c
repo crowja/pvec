@@ -7,31 +7,31 @@
 #include "tinytest.h"
 
 
-#ifdef _COLOR_CODE
-#undef _COLOR_CODE
+#ifdef COLOR_CODE
+#undef COLOR_CODE
 #endif
-#define _COLOR_CODE      0x1B
-#ifdef _COLOR_RED
-#undef _COLOR_RED
+#define COLOR_CODE      0x1B
+#ifdef COLOR_RED
+#undef COLOR_RED
 #endif
-#define _COLOR_RED       "[1;31m"
-#ifdef _COLOR_GREEN
-#undef _COLOR_GREEN
+#define COLOR_RED       "[1;31m"
+#ifdef COLOR_GREEN
+#undef COLOR_GREEN
 #endif
-#define _COLOR_GREEN     "[1;32m"
-#ifdef _COLOR_YELLOW
-#undef _COLOR_YELLOW
+#define COLOR_GREEN     "[1;32m"
+#ifdef COLOR_YELLOW
+#undef COLOR_YELLOW
 #endif
-#define _COLOR_YELLOW    "[1;33m"
-#ifdef _COLOR_RESET
-#undef _COLOR_RESET
+#define COLOR_YELLOW    "[1;33m"
+#ifdef COLOR_RESET
+#undef COLOR_RESET
 #endif
-#define _COLOR_RESET     "[0m"
+#define COLOR_RESET     "[0m"
 
 static void
-_printf_test_name(char *name, char *info)
+printf_test_name(char *name, char *info)
 {
-   printf("%c%s%s%c%s", _COLOR_CODE, _COLOR_YELLOW, name, _COLOR_CODE, _COLOR_RESET);
+   printf("%c%s%s%c%s", COLOR_CODE, COLOR_YELLOW, name, COLOR_CODE, COLOR_RESET);
 
    if (NULL != info)
       printf(" [%s]\n", info);
@@ -48,7 +48,7 @@ test_check(void)
    double      y[] = { -0.3, 0.3, 0.4 };
    double      z[] = { 0.3, 0.3, -0.4 };
 
-   _printf_test_name("test_check", "pvec_check");
+   printf_test_name("test_check", "pvec_check");
    ASSERT_EQUALS(1, pvec_check(3, x));
    ASSERT_EQUALS(0, pvec_check(3, y));
    ASSERT_EQUALS(0, pvec_check(3, z));
@@ -62,7 +62,7 @@ test_convex_domain_1(void)
    double      alpha_min, alpha_max;
    unsigned    len = sizeof(x) / sizeof(double);
 
-   _printf_test_name("test_convex_domain_1", "pvec_convex_domain");
+   printf_test_name("test_convex_domain_1", "pvec_convex_domain");
    pvec_convex_domain(len, x, y, &alpha_min, &alpha_max);
    ASSERT("alpha_min test", (fabs(alpha_min + 2.0) < 4 * DBL_EPSILON));
    ASSERT("alpha_max test", fabs(alpha_max - 2.5) < 4 * DBL_EPSILON);
@@ -76,7 +76,7 @@ test_convex_domain_2(void)
    double      alpha_min, alpha_max;
    unsigned    len = sizeof(x) / sizeof(double);
 
-   _printf_test_name("test_convex_domain_2", "pvec_normalize, pvec_convex_domain");
+   printf_test_name("test_convex_domain_2", "pvec_normalize, pvec_convex_domain");
 
    pvec_normalize(len, x);
    pvec_normalize(len, y);
@@ -96,7 +96,7 @@ test_convex_sum(void)
    double      check1 = x[1] + (y[1] - x[1]) * a;
    double      check2 = x[2] + (y[2] - x[2]) * a;
 
-   _printf_test_name("test_convex_sum", "pvec_convex_sum");
+   printf_test_name("test_convex_sum", "pvec_convex_sum");
 
    pvec_convex_sum(3, 0.4, x, y, z);
    ASSERT("convex_sum test 1", (fabs(z[0] - check0) < 4 * DBL_EPSILON));
@@ -112,7 +112,7 @@ test_entropy(void)
    double      entropy = pvec_entropy(4, x);
    double      entropy0 = 0.94334839232903924917e-00;
 
-   _printf_test_name("test_entropy", "pvec_entropy");
+   printf_test_name("test_entropy", "pvec_entropy");
 
    ASSERT("entropy test 1", (entropy - entropy0) < 4 * DBL_EPSILON);
 }
@@ -124,7 +124,7 @@ test_normalize(void)
    double      y[3] = { 1, 2, -3 };
    double      z[3] = { 0, 0, 0 };
 
-   _printf_test_name("test_normalize", "pvec_normalize");
+   printf_test_name("test_normalize", "pvec_normalize");
 
    ASSERT_EQUALS(0, pvec_normalize(3, x));
    ASSERT_EQUALS(1, pvec_normalize(3, y));
@@ -137,7 +137,7 @@ test_sparsify(void)
    double      x[] = { 0.5, 0.4, 0.1 };
    unsigned    changed;
 
-   _printf_test_name("test_sparsify", "pvec_sparsify");
+   printf_test_name("test_sparsify", "pvec_sparsify");
 
    changed = pvec_sparsify(3, x);
    ASSERT_EQUALS(1, changed);
@@ -152,7 +152,7 @@ test_sparsify(void)
 static void
 test_stub(void)
 {
-   _printf_test_name("test_stub()", NULL);
+   printf_test_name("test_stub()", NULL);
    ASSERT_EQUALS(0, 0);
 }
 #endif

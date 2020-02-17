@@ -1,18 +1,13 @@
 /**
  *  @file pvec.h
  *  @version 0.2.0-dev0
- *  @date Sat Dec  7 13:08:23 CST 2019
+ *  @date Sun Feb 16, 2020 08:22:42 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
 
-#ifndef _PVEC_H_
-#define _PVEC_H_
-
-#ifdef  _PACKAGE_NAME
-#undef  _PACKAGE_NAME
-#endif
-#define _PACKAGE_NAME "pvec"
+#ifndef PVEC_H
+#define PVEC_H
 
 /**
  *  @brief FIXME Example function.

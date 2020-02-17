@@ -1,7 +1,7 @@
 /**
  *  @file pvec.c
  *  @version 0.2.0-dev0
- *  @date Sat Dec  7 13:08:23 CST 2019
+ *  @date Sun Feb 16, 2020 08:22:42 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
@@ -12,25 +12,20 @@
 #include <float.h>
 #include "pvec.h"
 
-#ifdef  _IS_NULL
-#undef  _IS_NULL
+#ifdef  IS_NULL
+#undef  IS_NULL
 #endif
-#define _IS_NULL(p)   ((NULL == (p)) ? (1) : (0))
+#define IS_NULL(p)   ((NULL == (p)) ? (1) : (0))
 
-#ifdef  _FREE
-#undef  _FREE
+#ifdef  MAX2
+#undef  MAX2
 #endif
-#define _FREE(p)      ((NULL == (p)) ? (0) : (free((p)), (p) = NULL))
+#define MAX2(a, b)   ((a) > (b) ? (a) : (b))
 
-#ifdef  _MAX2
-#undef  _MAX2
+#ifdef  MIN2
+#undef  MIN2
 #endif
-#define _MAX2(a, b)   ((a) > (b) ? (a) : (b))
-
-#ifdef  _MIN2
-#undef  _MIN2
-#endif
-#define _MIN2(a, b)   ((a) < (b) ? (a) : (b))
+#define MIN2(a, b)   ((a) < (b) ? (a) : (b))
 
 int
 pvec_check(unsigned len, double *pvec)
@@ -61,12 +56,12 @@ pvec_convex_domain(unsigned len, double *pvec1, double *pvec2, double *alpha_min
    for (i = 0; i < len; i++) {
       del = pvec2[i] - pvec1[i];
       if (del > 0) {
-         *alpha_max = _MIN2(*alpha_max, (1 - pvec1[i]) / del);
-         *alpha_min = _MAX2(*alpha_min, -pvec1[i] / del);
+         *alpha_max = MIN2(*alpha_max, (1 - pvec1[i]) / del);
+         *alpha_min = MAX2(*alpha_min, -pvec1[i] / del);
       }
       else if (del < 0) {
-         *alpha_max = _MIN2(*alpha_max, -pvec1[i] / del);
-         *alpha_min = _MAX2(*alpha_min, (1 - pvec1[i]) / del);
+         *alpha_max = MIN2(*alpha_max, -pvec1[i] / del);
+         *alpha_min = MAX2(*alpha_min, (1 - pvec1[i]) / del);
       }
       else {                                     /* no-op */
       }
@@ -141,7 +136,6 @@ pvec_version(void)
    return "0.2.0-dev0";
 }
 
-#undef _IS_NULL
-#undef _FREE
-#undef _MAX2
-#undef _MIN2
+#undef IS_NULL
+#undef MAX2
+#undef MIN2
