@@ -1,7 +1,7 @@
 /**
  *  @file pvec.c
  *  @version 0.2.0-dev0
- *  @date Sun Feb 16, 2020 08:22:42 PM CST
+ *  @date Mon Feb 17, 2020 07:09:46 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
@@ -30,8 +30,8 @@
 int
 pvec_check(unsigned len, double *pvec)
 {
-   unsigned    i;
-   unsigned    okay = 0;
+   unsigned  i;
+   unsigned  okay = 0;
 
    for (i = 0; i < len; i++) {
       if (pvec[i] < 0)
@@ -47,8 +47,8 @@ void
 pvec_convex_domain(unsigned len, double *pvec1, double *pvec2, double *alpha_min,
                    double *alpha_max)
 {
-   unsigned    i;
-   double      del;
+   unsigned  i;
+   double    del;
 
    *alpha_min = -DBL_MAX;
    *alpha_max = DBL_MAX;
@@ -71,7 +71,7 @@ pvec_convex_domain(unsigned len, double *pvec1, double *pvec2, double *alpha_min
 void
 pvec_convex_sum(unsigned len, double a, double *pvec1, double *pvec2, double *pvec3)
 {
-   unsigned    i;
+   unsigned  i;
 
    for (i = 0; i < len; i++)
       pvec3[i] = (1 - a) * pvec1[i] + a * pvec2[i];
@@ -80,8 +80,8 @@ pvec_convex_sum(unsigned len, double a, double *pvec1, double *pvec2, double *pv
 double
 pvec_entropy(unsigned len, double *pvec)
 {
-   unsigned    i;
-   double      sum = 0;
+   unsigned  i;
+   double    sum = 0;
 
    for (i = 0; i < len; i++)
       if (pvec[i] > 0)
@@ -93,8 +93,8 @@ pvec_entropy(unsigned len, double *pvec)
 int
 pvec_normalize(unsigned len, double *pvec)
 {
-   unsigned    i;
-   double      sum = 0;
+   unsigned  i;
+   double    sum = 0;
 
    for (i = 0; i < len; i++) {
       if (pvec[i] < 0)
@@ -114,8 +114,8 @@ pvec_normalize(unsigned len, double *pvec)
 unsigned
 pvec_sparsify(unsigned len, double *pvec)
 {
-   unsigned    i;
-   unsigned    changed = 0;
+   unsigned  i;
+   unsigned  changed = 0;
 
    for (i = 0; i < len; i++) {
       if (pvec[i] < 1.0 / len) {

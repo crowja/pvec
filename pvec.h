@@ -1,7 +1,7 @@
 /**
  *  @file pvec.h
  *  @version 0.2.0-dev0
- *  @date Sun Feb 16, 2020 08:22:42 PM CST
+ *  @date Mon Feb 17, 2020 07:09:46 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
@@ -15,7 +15,7 @@
  *  @param cp [in] Pointer to a string.
  *  @returns Returns 0 on success, 0 otherwise.
  */
-int         pvec_check(unsigned len, double *pvec);
+int       pvec_check(unsigned len, double *pvec);
 
 /**
  *  @brief Compute the maximal domain for convex combinations.
@@ -31,13 +31,13 @@ int         pvec_check(unsigned len, double *pvec);
  *  @param alpha_max [out] Largest value of alpha for which
  *  (1-alpha)*pvec1 + alpha*pvec2 is a probability vector.
  */
-void        pvec_convex_domain(unsigned len, double *pvec1, double *pvec2,
-                               double *alpha_min, double *alpha_max);
+void      pvec_convex_domain(unsigned len, double *pvec1, double *pvec2,
+                             double *alpha_min, double *alpha_max);
 
-void        pvec_convex_sum(unsigned len, double a, double *pvec1, double *pvec2,
-                            double *pvec3);
-double      pvec_entropy(unsigned len, double *pvec);
-int         pvec_normalize(unsigned len, double *pvec);
+void      pvec_convex_sum(unsigned len, double a, double *pvec1, double *pvec2,
+                          double *pvec3);
+double    pvec_entropy(unsigned len, double *pvec);
+int       pvec_normalize(unsigned len, double *pvec);
 
 /**
  *  @brief Simple probability vector sparsification.
@@ -48,7 +48,7 @@ int         pvec_normalize(unsigned len, double *pvec);
  *  after sparsification.
  *  @returns Returns the number of changes made.
  */
-unsigned    pvec_sparsify(unsigned len, double *pvec);
+unsigned  pvec_sparsify(unsigned len, double *pvec);
 
 /**
  *  @brief Return the version of this package.
