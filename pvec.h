@@ -1,6 +1,6 @@
 /**
  *  @file pvec.h
- *  @version 0.2.0-dev0
+ *  @version 0.2.0
  *  @date Mon Feb 17, 2020 07:09:46 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
